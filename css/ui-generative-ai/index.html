@@ -1,222 +1,202 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>맛있는 한입</title>
-  <style>
-    /* 전체 상단 영역 */
-    .header {
-      display: flex;
-      justify-content: space-between; /* 좌/우 배치 */
-      align-items: center;
-      padding: 12px 20px;
-      border-bottom: 1px solid #ddd;
-    }
-
-    /* 좌측 (사이트 이름 + 카테고리) */
-    .left-area {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .site-title {
-      margin: 0;
-      font-size: 1.5rem;  /* h2 크기 */
-      font-weight: 700;
-    }
-
-    .categories {
-      display: flex;
-      gap: 8px;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      font-size: 0.9rem;
-      color: #555;
-    }
-
-    .categories li + li::before {
-      content: "•";
-      margin: 0 6px;
-      color: #999;
-    }
-
-    /* 우측 (로그인/회원가입) */
-    .auth-links {
-      display: flex;,
-      gap: 12px;
-      font-size: 0.9rem;
-    }
-
-    .auth-links a {
-      text-decoration: none;
-      color: #0073e6;
-      font-weight: 500;
-    }
-
-    .auth-links a:hover {
-      text-decoration: underline;
-    }
-
-    /* 제목 영역 스타일 추가 */
-    .title-area {
-      text-align: center; /* 안의 텍스트를 가로 중앙으로 정렬 */
-      padding: 20px 0;
-    }
-
-    .title-area h1 {
-      margin: 0 0 10px 0;
-      font-size: 2rem;
-      color: #333;
-    }
-
-    .title-area h4 {
-      margin: 0;
-      font-size: 1.2rem;
-      color: #666;
-      font-weight: 500;
-    }
-
-    /* 이미지 갤러리 스타일 */
-    .gallery {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-      flex-wrap: wrap;
-    }
-
-    .gallery-item {
-      text-align: center;
-    }
-
-    .gallery-item img {
-      width: 250px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    /* 반응형 (화면 좁을 때 줄바꿈) */
-    @media (max-width: 500px) {
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>맛있는 한입</title>
+    <style>
+      /* 전체 상단 영역 */
       .header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-      }
-      .left-area {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-      }
-      .title-area h1 {
-        font-size: 1.5rem;
-      }
-      .gallery {
-        flex-direction: column;
+        display: flex;
+        justify-content: space-between; /* 좌/우 배치 */
         align-items: center;
+        padding: 12px 20px;
+        border-bottom: 1px solid #ddd;
       }
+
+      /* 좌측 (사이트 이름 + 카테고리) */
+      .left-area {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .site-title {
+        margin: 0;
+        font-size: 1.5rem;  /* h2 크기 */
+        font-weight: 700;
+      }
+
+      .categories {
+        display: flex;
+        gap: 8px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-size: 0.9rem;
+        color: #555;
+      }
+
+      .categories li + li::before {
+        content: "•";
+        margin: 0 6px;
+        color: #999;
+      }
+
+      /* 우측 (로그인/회원가입) */
+      .auth-links {
+        display: flex;,
+        gap: 12px;
+        font-size: 0.9rem;
+      }
+
+      .auth-links a {
+        text-decoration: none;
+        color: #0073e6;
+        font-weight: 500;
+      }
+
+      .auth-links a:hover {
+        text-decoration: underline;
+      }
+
+      /* 제목 영역 스타일 추가 */
+      .title-area {
+        text-align: center; /* 안의 텍스트를 가로 중앙으로 정렬 */
+        padding: 20px 0;
+      }
+
+      .title-area h1 {
+        margin: 0 0 10px 0;
+        font-size: 2rem;
+        color: #333;
+      }
+
+      .title-area h4 {
+        margin: 0;
+        font-size: 1.2rem;
+        color: #666;
+        font-weight: 500;
+      }
+
+      /* 이미지 갤러리 스타일 */
+      .gallery {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+      }
+
+      .gallery-item {
+        text-align: center;
+      }
+
       .gallery-item img {
-        width: 300px;
+        width: 250px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       }
-    }
-  </style>
-</head>
-<body>
-  <header class="header">
-    <!-- 좌측 영역 -->
-    <div class="left-area">
-      <h2 class="site-title">맛있는 한입</h2>
-      <ul class="categories">
-        <li>한식</li>
-        <li>중식</li>
-        <li>양식</li>
-      </ul>
-    </div>
 
-    <!-- 우측 영역 -->
-    <nav class="auth-links">
-      <a href="#">로그인</a>
-      <a href="#">회원가입</a>
-    </nav>
-  </header>
-
-  <main>
-    <div class="title-area">
-      <h1>요리 초보를 위한 간단한 요리</h1>
-      <h4>계절별 추천 요리로 매일 식탁을 새롭게!</h4>
-
-<button class="">봄 요리</button>
-<button class="">여름 요리</button>
-<button class="">가을 요리</button>
-<button class="">겨울 요리</button>
-
-    </div>
-
-    <div class="gallery">
-      <div class="gallery-item">
-        <img src="https://www.fsnews.co.kr/news/photo/202206/45881_38412_1416.png" 
-             alt="김치볶음밥">
-             <h3>김치 볶음밥</h3>
-             <p>집에서 쉽게 만드는 한식 대표 요리</p>
+      /* 반응형 (화면 좁을 때 줄바꿈) */
+      @media (max-width: 500px) {
+        .header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+        .left-area {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 6px;
+        }
+        .title-area h1 {
+          font-size: 1.5rem;
+        }
+        .gallery {
+          flex-direction: column;
+          align-items: center;
+        }
+        .gallery-item img {
+          width: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <!-- 좌측 영역 -->
+      <div class="left-area">
+        <h2 class="site-title">맛있는 한입</h2>
+        <ul class="categories">
+          <li>한식</li>
+          <li>중식</li>
+          <li>양식</li>
+        </ul>
       </div>
-      <div class="gallery-item">
-        <img src="https://mblogthumb-phinf.pstatic.net/20160510_18/dkcaihong_1462863465030lgGLY_JPEG/%C4%F4%C6%C4%BF%C0%C4%A1%C5%B2_(3).jpg?type=w420" 
-             alt="쿵파오치킨">
-             <h3>쿵파오 치킨</h3>
-             <p>매콜달콤한 중식 닭요리</p>
+
+      <!-- 우측 영역 -->
+      <nav class="auth-links">
+        <a href="#">로그인</a>
+        <a href="#">회원가입</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="title-area">
+        <h1>요리 초보를 위한 간단한 요리</h1>
+        <h4>계절별 추천 요리로 매일 식탁을 새롭게!</h4>
+
+        <button class="">봄 요리</button>
+        <button class="">여름 요리</button>
+        <button class="">가을 요리</button>
+        <button class="">겨울 요리</button>
       </div>
-      <div class="gallery-item">
-        <img src="https://recipe1.ezmember.co.kr/cache/recipe/2015/07/06/8021c6f390cf3b1d9a8d3c4320f6690c1_f.jpg" 
-             alt="까르보나라">
-             <h3>까르보나라</h3>
-             <p>크림소스가 일품인 이탈리아 파스타</p>
+
+      <div class="gallery">
+        <div class="gallery-item">
+          <img
+            src="https://www.fsnews.co.kr/news/photo/202206/45881_38412_1416.png"
+            alt="김치볶음밥"
+          />
+          <h3>김치 볶음밥</h3>
+          <p>집에서 쉽게 만드는 한식 대표 요리</p>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://mblogthumb-phinf.pstatic.net/20160510_18/dkcaihong_1462863465030lgGLY_JPEG/%C4%F4%C6%C4%BF%C0%C4%A1%C5%B2_(3).jpg?type=w420"
+            alt="쿵파오치킨"
+          />
+          <h3>쿵파오 치킨</h3>
+          <p>매콜달콤한 중식 닭요리</p>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://recipe1.ezmember.co.kr/cache/recipe/2015/07/06/8021c6f390cf3b1d9a8d3c4320f6690c1_f.jpg"
+            alt="까르보나라"
+          />
+          <h3>까르보나라</h3>
+          <p>크림소스가 일품인 이탈리아 파스타</p>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://mblogthumb-phinf.pstatic.net/MjAxODA2MTBfMjU5/MDAxNTI4NjExNzI5Njkz.0Nd2Ei1Qf5NArU2wchjQaWERhlnEzyzQdMMX4uZwCfUg.HKeDVgrCifiprgIXwHyp5IGDtC08b8KgfyRSR-oNjvQg.JPEG.annasui714/output_4051277620.jpg?type=w800"
+            alt="아보카도 토스트"
+          />
+          <h3>아보카도 토스트</h3>
+          <p>건강한 아침식사로 완벽한 토스트</p>
+        </div>
       </div>
-      <div class="gallery-item">
-        <img src="https://mblogthumb-phinf.pstatic.net/MjAxODA2MTBfMjU5/MDAxNTI4NjExNzI5Njkz.0Nd2Ei1Qf5NArU2wchjQaWERhlnEzyzQdMMX4uZwCfUg.HKeDVgrCifiprgIXwHyp5IGDtC08b8KgfyRSR-oNjvQg.JPEG.annasui714/output_4051277620.jpg?type=w800" 
-             alt="아보카도 토스트">
-             <h3>아보카도 토스트</h3>
-             <p>건강한 아침식사로 완벽한 토스트</p>
+      <hr />
+
+      <div class="title-area">
+        <h1>최신 레시피</h1>
+        <h4>인기 게시글</h4>
       </div>
-    </div>
-<hr>
-
- <div class="title-area">
-      <h1>최신 레시피</h1>
-      <h4>인기 게시글</h4>
-    </div>
-
-
-    
-
-
-
-
-
-
-
-  </main>
-</body>
+    </main>
+  </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
